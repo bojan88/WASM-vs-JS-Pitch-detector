@@ -1,0 +1,10 @@
+[package]
+name = "wasm-tuner"
+version = "0.1.0"
+authors = ["Bojan Djurdjevic <bojan88@gmail.com>"]
+
+[dependencies]
+
+[dev-dependencies]
+rand = "*"
+synthrs = { git = "https://github.com/gyng/synthrs" }
