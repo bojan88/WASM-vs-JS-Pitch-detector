@@ -1,7 +1,6 @@
 Module['noExitRuntime'] = true;
 
 Module.onRuntimeInitialized = function() {
-  const pitchEl = document.querySelector('#pitch');
   const bufferLength = 1024;
 
   navigator.mediaDevices.getUserMedia({ audio: true, video: false }).then(stream => {
@@ -19,9 +18,6 @@ Module.onRuntimeInitialized = function() {
 
       let startTime = window.performance.now();
       let pitch = Module._get_pitch(buffer, data.length, e.inputBuffer.sampleRate);
-
-      // console.log(pitch);
-      // pitchEl.innerHTML = pitch;
     }
 
     source.connect(node);
