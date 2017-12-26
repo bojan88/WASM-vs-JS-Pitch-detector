@@ -1,15 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Wasm vs JS</title>
+    <title>Wasm vs JS Tuner</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="wasm-tuner.js"></script>
-    <script src="script.js"></script>
-</head>
-<body>
 
-</body>
+    <style>
+      body {
+        text-align: center;
+      }
+      .columns {
+        display: flex;
+      }
+      .columns > div {
+        flex: 1;
+      }
+      .pitch {
+        font-weight: bold;
+      }
+      .aet {
+        font-weight: bold;
+      }
+      @media(max-width: 600px) {
+        .columns {
+          display: block;
+        }
+        .columns > div:first-child {
+          border-bottom: 1px solid #ddd;
+          padding-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Pitch detection comparison between Wasm and JS</h1>
+
+    <div class="columns">
+      <div>
+        <h5>WASM</h5>
+        <p>Pitch</p>
+        <p id="wasmPitch" class="pitch"> - </p>
+        <p>Average execution time</p>
+        <p id="wasmExecTime" class="aet"> - </p>
+        <button onclick="toggleWasm(this)">Start</button>
+      </div>
+
+      <div>
+        <h5>JavaScript</h5>
+        <p>Pitch</p>
+        <p id="jsPitch" class="pitch"> - </p>
+        <p>Average execution time</p>
+        <p id="jsExecTime" class="aet"> - </p>
+        <button onclick="toggleJs(this)">Start</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>

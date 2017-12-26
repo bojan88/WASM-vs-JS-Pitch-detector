@@ -1,7 +1,9 @@
 onmessage = function(e) {
-  console.time('pitch');
-  let pitch = getPitch(new Float32Array(e.data.buffer), e.data.sampleRate);
-  console.timeEnd('pitch');
+  const startTime = performance.now();
+  const pitch = getPitch(new Float32Array(e.data.buffer), e.data.sampleRate);
+  const execTime = performance.now() - startTime;
+
+  postMessage({pitch, execTime});
 }
 
 const LOWER_PITCH_CUTOFF = 20.0;
@@ -40,7 +42,7 @@ function getPitch(buffer, sampleRate) {
 
   const pitchEst = sampleRate / period;
 
-  return pitchEst > LOWER_PITCH_CUTOFF ? pitchEst : null;
+  return pitchEst > LOWER_PITCH_CUTOFF ? pitchEst : -1;
 }
 
 function peakPicking(nsdf) {
