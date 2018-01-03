@@ -4,3 +4,5 @@ Simple project to compare WebAssembly performance improvement using MPM algorith
 Most of the code is rewrite from [TarsosDSP implementation](https://github.com/JorenSix/TarsosDSP/blob/master/src/core/be/tarsos/dsp/pitch/McLeodPitchMethod.java) which is based on [Tartini](https://github.com/Guildenstern/Tartini)
 
 [Live demo](https://s3.amazonaws.com/wasm-vs-js-tuner/index.html)
+
+[Read more on my blog](https://bojandjurdjevic.com/2018/WASM-vs-JS-Realtime-pitch-detection/)
